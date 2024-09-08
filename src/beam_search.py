@@ -38,7 +38,15 @@ class Sequence:
 # Vocabulary size = V, Beam width = B, Max length = L
 # Time complexity: O(L * (B * V + B * log(B*V))) = O(L * B * V)
 # Space complexity: O(B * V)
-def beam_search(root: Node, beam_width: int, max_len: int) -> Tuple[List[str], float]:
+def beam_search(root: Node, beam_width: int) -> Tuple[List[str], float]:
+    """
+    Beam search algorithm to find the best approx sequence of words
+    Args:
+        root: root node of the search tree
+        beam_width: width of the beam
+    Returns:
+        Tuple of list of words in the best sequence and log probability of the sequence
+    """
     curr_node = root
 
     final_sequences: List[Sequence] = []

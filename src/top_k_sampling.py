@@ -1,6 +1,14 @@
 import torch
 
 def top_k_sampling(logits, k):
+    """
+    Top-K sampling algorithm to sample from a categorical distribution
+    Args:
+        logits: unnormalized log probabilities
+        k: number of top elements to consider
+    Returns:
+        sampled token
+    """
     probabilities = torch.softmax(logits, dim=-1)
     top_k_values, top_k_indices = torch.topk(probabilities, k)
 
