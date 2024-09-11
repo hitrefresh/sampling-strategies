@@ -78,7 +78,7 @@ def beam_search(root: Node, beam_width: int) -> Tuple[List[str], float]:
             beam_width, next_sequences, key=lambda seq: seq.logprob
         )
 
-    max_seq = max(final_sequences, key=lambda prob: seq.prob)
+    max_seq = max(final_sequences, key=lambda seq: seq.logprob)
 
     # Travese the max prob sequence to get the words
     max_seq_words = []
